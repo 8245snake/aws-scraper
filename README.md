@@ -7,11 +7,11 @@ Lambdaにデプロイしてcronなどで定期実行させる運用を想定す�
 ## 準備
 ### ビルド
 Go言語で書かれており、以下のコマンドで依存ライブラリをインストールする必要がある。  
-`get -u github.com/aws/aws-lambda-go/lambda`
+`go get -u github.com/aws/aws-lambda-go/lambda`
 ### デプロイ
 2020/06/04現在、LambdaでGo言語をデプロイするためにはローカルでビルドしてzipをアップロードする方法しかない。  
 build-lambda-zipでzip化することが推奨されているため以下のコマンドでインストールする。  
-`get -u github.com/aws/aws-lambda-go/cmd/build-lambda-zip`
+`go get -u github.com/aws/aws-lambda-go/cmd/build-lambda-zip`
 ### 環境変数
 設定をLambdaの環境変数に記載する。
 
@@ -47,5 +47,15 @@ build-lambda-zipでzip化することが推奨されているため以下のコ�
 ```
 
 ## 使い方
+### 台数スクレイピング開始
 上記の準備を整えたうえでLambdaにデプロイし、トリガーで以下の入力を投げる。  
  `{ "type" : "get_spotinfo"}`
+ 
+### マスタ更新
+スポットのコード（areaとspot）をと名前を紐付けるマスタ（spotmaster）の登録は以下の入力を投げる。
+ `{ "type" : "get_master"}`
+ 
+ ### リカバリ
+何らかの事情でスクレイピング結果の送信に失敗したとき（DBサーバが落ちてるなど）、/tmp フォルダにJSONファイルとして溜めておき、あとから送信するという仕組みがある。  
+以下の入力を投げることで20件ずつ送信することができる。  
+ `{ "type" : "recovery"}`
