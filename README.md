@@ -18,10 +18,10 @@ build-lambda-zipでzip化することが推奨されているため以下のコ�
 | キー | 値 | 意味 |
 |----|----|----|
 |TZ |Asia/Tokyo |タイムゾーン |
-|LoginID |ログインID |ログインID |
-|Password |パスワード |パスワード|
-|SendAddress |https://hogehoge.com/callback |スクレイピング結果を送信する独自のエンドポイント |
-|ApiCert |秘密のキー |スクレイピング結果を送信するときにヘッダーに付加する秘密の文字列 |
+|LoginID |*your login ID* |ログインID |
+|Password |*your password* |パスワード|
+|SendAddress |*https://hogehoge.com/callback* |スクレイピング結果を送信する独自のエンドポイント |
+|ApiCert |*secret token* |スクレイピング結果を送信するときにヘッダーに付加する秘密の文字列 |
 |AreaIdString |1,2,3,5,6,4,10,12,7,8 |スクレイピング対象とするエリアのID |
 
 ### DB登録
