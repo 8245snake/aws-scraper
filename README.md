@@ -52,7 +52,7 @@ build-lambda-zipでzip化することが推奨されているため以下のコ�
  `{ "type" : "get_spotinfo"}`
  
 ### マスタ更新
-スポットのコード（areaとspot）をと名前を紐付けるマスタ（spotmaster）の登録は以下の入力を投げる。
+スポットのコード（areaとspot）をと名前を紐付けるマスタ（spotmaster）の登録は以下の入力を投げる。  
  `{ "type" : "get_master"}`
  
  ### リカバリ
